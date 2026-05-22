@@ -1,0 +1,48 @@
+// &lfxo {
+//     status = "okay";
+// };
+
+// &hfxo {
+//     status = "okay";
+//     load-capacitors = "internal";
+//     load-capacitance-femtofarad = <15500>;
+// };
+
+&uicr {
+    nfct-pins-as-gpios;
+    gpio-as-nreset;
+};
+
+
+&gpiote20 {
+    status = "okay";
+};
+
+&gpiote30 {
+    status = "okay";
+};
+
+&spi00 {
+    status = "disabled";
+};
+
+&nfct {
+    status = "disabled";
+};
+
+// &qspi{
+//     status = "disabled";
+// };
+
+&spi20 {
+    status = "disabled";
+};
+
+&uart00 {
+    status = "disabled";
+};
+
+&pinctrl {
+    /omit-if-no-ref/ spi00_default: spi00_default {};
+    /omit-if-no-ref/ spi00_sleep: spi00_sleep {};
+};
