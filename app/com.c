@@ -15,7 +15,8 @@
 RING_BUF_DECLARE(ringbuf, RING_BUF_SIZE);
 
 uint8_t AT_command[AT_CMD_MAX_LEN];
-static const struct device *uart = DEVICE_DT_GET(DT_NODELABEL(uart20));
+// static const struct device *uart = DEVICE_DT_GET(DT_NODELABEL(uart20));
+const struct device *uart = DEVICE_DT_GET(DT_NODELABEL(uart20));
 static struct k_work test_work;
 
 static bool command_ready = false;

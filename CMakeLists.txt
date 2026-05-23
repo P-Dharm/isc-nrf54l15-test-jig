@@ -10,6 +10,7 @@ target_sources(app PRIVATE src/main.c
                             app/com.c
                             app/test_commands.c
                             app/process.c
+                            app/mac.c
                             # test_samples/adc/adc.c
                             # test_samples/pwm/pwm.c
                             # test_samples/spi/spi.c

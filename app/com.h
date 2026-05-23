@@ -11,6 +11,8 @@
 #define RECEIVE_TIMEOUT 1000
 #define SLEEP_TIME_MS 10 * 60 * 1000
 
+extern const struct device *uart;
+
 // static const struct gpio_dt_spec led0 = GPIO_DT_SPEC_GET(DT_ALIAS(led0), gpios);
 
 // static void uart_comm_callback(const struct device *dev, struct uart_event *evt, void *user_data);

@@ -1,5 +1,9 @@
-#ifndef MAC_H
-#define MAC_H
+#ifndef __MAC_H__
+#define __MAC_H__
+
+#include <zephyr/kernel.h>
 
 
-#endif // MAC_H
+void send_test_result(void);
+
+#endif // __MAC_H__

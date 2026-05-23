@@ -3,6 +3,7 @@
 #include <test_commands.h>
 #include <com.h>
 #include <process.h>
+#include <mac.h>
 
 uint8_t AT_response[20] = {0};
 
@@ -11,6 +12,7 @@ test_return ret = TEST_ERROR;
 void perform_gpio_test()
 {
     printk("perform_gpio_test\n");
+    
     ret = gpio();
     if(ret == TEST_OK) {
         // strcpy(AT_response, "GPIO+OK");
@@ -19,7 +21,8 @@ void perform_gpio_test()
         // strcpy(AT_response, "GPIOS+ERROR");
         printk("GPIO+ERROR\n");
     }
-    // uart_tx_send(AT_response);   
+    // uart_tx_send();   
+    send_test_result();
 }
 
 void perform_uart_test()

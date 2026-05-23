@@ -3,6 +3,7 @@
 #include <zephyr/logging/log.h>
 #include <stdio.h>
 #include <process.h>
+#include <mac.h>
 
 LOG_MODULE_REGISTER(gpio_test, LOG_LEVEL_DBG);
 
@@ -105,12 +106,12 @@ test_return gpio(void)
     const uint8_t first_half_port_1[] =  { 6, 12 };
     const uint8_t second_half_port_1[] = { 9, 11};
 
-    // const uint8_t first_half_port_2[] =  { 0, 1 ,2,3,4, 5};
-    // const uint8_t second_half_port_2[] = { 5, 6, 7,8,9,10};
+    const uint8_t first_half_port_2[] =  { 0, 1 ,2,3,4, 5};
+    const uint8_t second_half_port_2[] = { 5, 6, 7,8,9,10};
     // const uint8_t first_half_port_2[] =  { 0, 4, 6 };
     // const uint8_t second_half_port_2[] = { 1, 5, 7 };
-    const uint8_t first_half_port_2[] =  { 0, 2, 4, 6, 8 };
-    const uint8_t second_half_port_2[] = { 1, 3, 5, 7, 9 };
+    // const uint8_t first_half_port_2[] =  { 0, 2, 4, 6, 8 };
+    // const uint8_t second_half_port_2[] = { 1, 3, 5, 7, 9 };
 
     // const uint8_t first_half_port_2[]  = { 0, 1, 2, 3, 4, 5 };
     // const uint8_t second_half_port_2[] = { 6, 7, 8, 9, 4, 10 };
