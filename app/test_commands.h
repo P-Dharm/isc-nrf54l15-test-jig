@@ -28,7 +28,7 @@ void perform_uart_test(void);
 // void perform_nfc_test(void);
 // void perform_qspi_test(void);
 // void perform_sleep_test(void);
-// void perform_ble_test(void);
+void perform_ble_test(void);
 
 test_return gpio(void);
 // test_return i2c(void);
@@ -39,7 +39,7 @@ test_return gpio(void);
 // test_return nfc(void);
 // test_return qspi(void);
 // test_return sleep(void);
-// test_return ble(void);
+test_return ble(void);
 
 
 #endif

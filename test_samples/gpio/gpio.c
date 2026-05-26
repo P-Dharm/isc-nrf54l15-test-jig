@@ -31,15 +31,15 @@ static int test_gpio_pair(const struct device *port, uint8_t out_pin, uint8_t in
 
     int err;
 
-    // err = gpio_pin_configure_dt(&input, GPIO_INPUT | GPIO_PULL_DOWN); // 1 DETECT LOGIC
-    err = gpio_pin_configure_dt(&input, GPIO_INPUT | GPIO_PULL_UP); // 0 DETECT LOGIC
+    err = gpio_pin_configure_dt(&input, GPIO_INPUT | GPIO_PULL_DOWN); // 1 DETECT LOGIC
+    // err = gpio_pin_configure_dt(&input, GPIO_INPUT | GPIO_PULL_UP); // 0 DETECT LOGIC
     if (err) {
         LOG_ERR("Failed to configure input pin %d", input.pin);
         return err;
     }
 
-    // err = gpio_pin_configure_dt(&output, GPIO_OUTPUT_ACTIVE); // 1 DETECT LOGIC
-    err = gpio_pin_configure_dt(&output, GPIO_OUTPUT_INACTIVE); // 0 DETECT LOGIC
+    err = gpio_pin_configure_dt(&output, GPIO_OUTPUT_ACTIVE); // 1 DETECT LOGIC
+    // err = gpio_pin_configure_dt(&output, GPIO_OUTPUT_INACTIVE); // 0 DETECT LOGIC
     if (err) {
         LOG_ERR("Failed to configure output pin %d", output.pin);
         return err;
@@ -53,8 +53,8 @@ static int test_gpio_pair(const struct device *port, uint8_t out_pin, uint8_t in
         return val;
     }
 
-    // if (val == 0) {     // 1 DETECT LOGIC
-    if (val == 1) {         // 0 DETECT LOGIC
+    if (val == 0) {     // 1 DETECT LOGIC
+    // if (val == 1) {         // 0 DETECT LOGIC
         LOG_WRN("No signal received at input pin %d from output pin %d", input.pin, output.pin);
         gpios_flag = false;
     } else {
@@ -156,24 +156,24 @@ test_return gpio(void)
     for (size_t i = 0; i < ARRAY_SIZE(received_vals_0); i++) {
         printk("OUT %d -> IN %d: %s\n",
             first_half_port_0[i], second_half_port_0[i],
-            // received_vals_0[i] > 0 ? "PASS" : "FAIL");  // 1 DETECT LOGIC
-            received_vals_0[i] == 0 ? "PASS" : "FAIL");  // 0 DETECT LOGIC
+            received_vals_0[i] > 0 ? "PASS" : "FAIL");  // 1 DETECT LOGIC
+            // received_vals_0[i] == 0 ? "PASS" : "FAIL");  // 0 DETECT LOGIC
     }
 
     printk("\n=== GPIO1 Test Results ===\n");
     for (size_t i = 0; i < ARRAY_SIZE(received_vals_1); i++) {
         printk("OUT %d -> IN %d: %s\n",
             first_half_port_1[i], second_half_port_1[i],
-            // received_vals_1[i] > 0 ? "PASS" : "FAIL"); // 1 DETECT LOGIC
-            received_vals_1[i] == 0 ? "PASS" : "FAIL");  // 0 DETECT LOGIC
+            received_vals_1[i] > 0 ? "PASS" : "FAIL"); // 1 DETECT LOGIC
+            // received_vals_1[i] == 0 ? "PASS" : "FAIL");  // 0 DETECT LOGIC
     }
 
     printk("\n=== GPIO2 Test Results ===\n");
     for (size_t i = 0; i < ARRAY_SIZE(received_vals_2); i++) {
         printk("OUT %d -> IN %d: %s\n",
             first_half_port_2[i], second_half_port_2[i],
-            // received_vals_2[i] > 0 ? "PASS" : "FAIL");   // 1 DETECT LOGIC
-            received_vals_2[i] == 0 ? "PASS" : "FAIL");  // 0 DETECT LOGIC
+            received_vals_2[i] > 0 ? "PASS" : "FAIL");   // 1 DETECT LOGIC
+            // received_vals_2[i] == 0 ? "PASS" : "FAIL");  // 0 DETECT LOGIC
     }
     
     if(gpios_flag) {

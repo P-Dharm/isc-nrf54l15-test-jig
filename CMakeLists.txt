@@ -18,7 +18,7 @@ target_sources(app PRIVATE src/main.c
                             # test_samples/usb/usb.c
                             # test_samples/nfc/nfc.c
                             # test_samples/nfc/ndef_file_m.c
-                            # test_samples/ble/ble.c
+                            test_samples/ble/ble.c
                             test_samples/gpio/gpio.c
                             # test_samples/sleep/sleep.c
                             )

@@ -67,10 +67,11 @@ void uart_work_handler(struct k_work *work)
 //     perform_sleep_test();
 // }
 
-// void ble_work_handler(struct k_work *work)
-// {
-//     perform_ble_test();
-// }
+void ble_work_handler(struct k_work *work)
+{
+    perform_ble_test();
+}
+
 K_WORK_DEFINE(gpio_work, gpio_work_handler);
 K_WORK_DEFINE(uart_work, uart_work_handler);
 // K_WORK_DEFINE(i2c_work, i2c_work_handler);
@@ -81,7 +82,7 @@ K_WORK_DEFINE(uart_work, uart_work_handler);
 // K_WORK_DEFINE(nfc_work, nfc_work_handler);
 // K_WORK_DEFINE(qspi_work, qspi_work_handler);
 // K_WORK_DEFINE(sleep_work, sleep_work_handler);
-// K_WORK_DEFINE(ble_work, ble_work_handler);
+K_WORK_DEFINE(ble_work, ble_work_handler);
 
 void select_test_to_perform()
 {
@@ -124,9 +125,9 @@ void select_test_to_perform()
     // else if(0 == memcmp(AT_command, SLEEP_command, sizeof(SLEEP_command))) {
     //         k_work_submit(&sleep_work);                     
     // }
-    // else if(0 == memcmp(AT_command, BLE_command, sizeof(BLE_command))) {
-    //         k_work_submit(&ble_work);                        
-    // }
+    else if(0 == memcmp(AT_command, BLE_command, sizeof(BLE_command))) {
+            k_work_submit(&ble_work);                        
+    }
     else {
         printk("not selected\n");
     }

@@ -143,15 +143,15 @@ void perform_uart_test()
 //     uart_tx_send(AT_response);   
 //  }
 
-// void perform_ble_test()
-// {
-//     printk("perform_ble_test\n");
-//     ret = ble();
-//     if(ret == TEST_OK) {
-//         strcpy(AT_response, "BLE+OK");
-//     }
-//     else {
-//         strcpy(AT_response, "BLE+ERROR");
-//     }
-//     uart_tx_send(AT_response);   
-//  }
+void perform_ble_test()
+{
+    printk("perform_ble_test\n");
+    ret = ble();
+    if(ret == TEST_OK) {
+        strcpy(AT_response, "BLE+OK");
+    }
+    else {
+        strcpy(AT_response, "BLE+ERROR");
+    }
+    uart_tx_send(AT_response);   
+ }
