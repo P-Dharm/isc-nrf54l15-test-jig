@@ -85,8 +85,15 @@ K_WORK_DEFINE(uart_work, uart_work_handler);
 
 void select_test_to_perform()
 {
-    printk("%s\n", AT_command);
-
+    // printk("%s\n", AT_command);
+    int n = sizeof(AT_command) / sizeof(AT_command[0]); 
+    for (int i = 0; i < n; i++) {
+        uart_poll_out(uart, AT_command[i]);
+    }
+    uart_poll_out(uart, '\r');
+    uart_poll_out(uart, '\n');
+    
+        // printk("Command received: %s\n", AT_command);
     if(0 == memcmp(AT_command, GPIO_command, sizeof(GPIO_command))) {
             k_work_submit(&gpio_work);
     }

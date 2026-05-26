@@ -37,13 +37,13 @@ void send_test_result(void)
 	get_mac_address(mac, sizeof(mac));
 
 	int n = snprintf(response, sizeof(response),
-					 "RESULT|%s|\r\n", mac);
+					 "MAC|%s|\r\n", mac);
 
 	// uart_tx(uart, (uint8_t *)response, (size_t)n, SYS_FOREVER_US);
 	// printk("Test result sent → MAC=%s \r\n", mac);
-	printk("RESULT|%s|\r\n", mac);
-	// for (int i = 0; i < n; i++) {
-    //     uart_poll_out(uart, response[i]);
-    // }
-
+	// printk("RESULT|%s|\r\n", mac);
+	for (int i = 0; i < n; i++) {
+        uart_poll_out(uart, response[i]);
+    }
+	
 }
