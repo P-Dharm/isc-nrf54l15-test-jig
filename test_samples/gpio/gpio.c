@@ -55,10 +55,10 @@ static int test_gpio_pair(const struct device *port, uint8_t out_pin, uint8_t in
 
     if (val == 0) {     // 1 DETECT LOGIC
     // if (val == 1) {         // 0 DETECT LOGIC
-        LOG_WRN("No signal received at input pin %d from output pin %d", input.pin, output.pin);
+        // LOG_WRN("No signal received at input pin %d from output pin %d", input.pin, output.pin);
         gpios_flag = false;
     } else {
-        LOG_INF("Signal received OK: Output pin %d -> Input pin %d", output.pin, input.pin);
+        // LOG_INF("Signal received OK: Output pin %d -> Input pin %d", output.pin, input.pin);
     }
 
     return val;

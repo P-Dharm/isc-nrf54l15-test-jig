@@ -86,17 +86,17 @@ test_return ble(void)
 
     LOG_INF("Advertising successfully started");
 
-    // k_msleep(5000);
+    k_msleep(35000);
 
     // if(current_conn) {
     //     err = bt_conn_disconnect(current_conn, 0x15);
     //     printk("Bluetooth conn disconnect returned with %d\n", err);
     // }
 
-    // err = bt_le_adv_stop();
+    err = bt_le_adv_stop();
     // printk("Bluetooth adv stop returned with %d\n", err);
 
-    // err = bt_disable();
+    err = bt_disable();
     // printk("Bluetooth disable returned with %d\n", err);
 
     // return TEST_OK;

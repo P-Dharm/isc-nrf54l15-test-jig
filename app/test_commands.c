@@ -153,5 +153,5 @@ void perform_ble_test()
     else {
         strcpy(AT_response, "BLE+ERROR");
     }
-    uart_tx_send(AT_response);   
+    // uart_tx_send(AT_response);   
  }
